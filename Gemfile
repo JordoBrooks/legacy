@@ -56,3 +56,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 
 gem 'simple_form'
+
+gem 'bootstrap-sass', '~>3.3.6'
+
+gem 'jquery-rails'
