@@ -10,9 +10,14 @@ class PostsController < ApplicationController
 	end
 
 	def create
-		@post = Post.create(params_for_post)
-
-		redirect_to posts_path
+		@post = Post.new(params_for_post)
+		if @post.save
+			flash[:success] = 'Post created!'
+			redirect_to posts_path
+		else
+			flash.now[:alert] = 'Post could not be created. Missing necessary information.'
+			render :new
+		end
 	end
 
 	def show
@@ -22,13 +27,20 @@ class PostsController < ApplicationController
 	end
 
 	def update
-		@post.update(params_for_post)
-		redirect_to(post_path(@post))
+		if @post.update(params_for_post)
+			flash[:success] = 'Post updated!'
+			redirect_to(post_path(@post))
+		else
+			flash[:alert] = 'Post could not be updated. Missing necessary information.'
+			render :edit
+		end
 	end
 
 	def destroy
-		@post.destroy
-		redirect_to posts_path
+		if @post.destroy
+			flash[:success] = 'Post deleted!'
+			redirect_to posts_path
+		end
 	end
 
 	private
