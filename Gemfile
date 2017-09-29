@@ -60,3 +60,5 @@ gem 'simple_form'
 gem 'bootstrap-sass', '~>3.3.6'
 
 gem 'jquery-rails'
+
+gem 'bcrypt',         '3.1.11'
