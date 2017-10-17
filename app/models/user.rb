@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  include AuthenticationHelper
+
+  attr_accessor :remember_token
 
   before_save {self.email.downcase!}
 
@@ -14,4 +17,21 @@ class User < ApplicationRecord
 
   has_secure_password
   validates :password, presence: true, length: {minimum: 6}
+
+  # remember user in database for use in persistent session
+  def remember
+    self.remember_token = new_token
+    update_attribute(:remember_digest, digest(remember_token))
+  end
+
+  # forget a user
+  def forget
+    update_attribute(:remember_digest, nil)
+  end
+
+  # return true if the given token matches the digest
+  def authenticated?(token)
+    return false if remember_digest.nil?
+    BCrypt::Password.new(remember_digest).is_password?(token)
+  end
 end
