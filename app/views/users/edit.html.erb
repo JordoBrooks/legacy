@@ -4,3 +4,7 @@
 <%= render 'shared/error_message' %>
 
 <%= render partial: 'form', :locals => {:message => 'Save changes'} %>
+
+<div class="text-center">
+  <%= link_to 'Delete user', user_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+</div>
