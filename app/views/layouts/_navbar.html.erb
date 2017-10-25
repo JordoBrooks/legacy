@@ -1,0 +1,36 @@
+<nav class="navbar navbar-default">
+  <div class="navbar-container">
+    <div class="navbar-header">
+      <button class="navbar-toggle collapsed" data-target="#bs-navbar-collapse-1" data-toggle="collapse" type="button">
+        <span class="sr-only">Toggle Navigation</span>
+        <span class="glyphicon glyphicon-menu-hamburger"></span>
+      </button>
+      <div class="navbar-brand">
+        <%= link_to (image_tag('legacy-logo-circle-min.jpg', size: '55')), root_path %>
+      </div>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <% if logged_in? %>
+              <a href=<%=new_post_path%>><span class="glyphicon glyphicon-upload"></span> New Post</a>
+          <% end %>
+        </li>
+        <li>
+          <% if logged_in? %>
+              <a href=<%=user_path(current_user)%>><span class="glyphicon glyphicon-user"></span> Profile</a>
+          <% else %>
+              <a href=<%=login_path%>><span class="glyphicon glyphicon-log-in"></span> Login</a>
+          <% end %>
+        </li>
+        <li>
+          <% if logged_in? %>
+              <a href=<%=logout_path%> data-method="delete"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+          <% else %>
+              <a href=<%=new_user_path%>><span class="glyphicon glyphicon-globe"></span> Register</a>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
