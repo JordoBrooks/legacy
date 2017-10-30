@@ -1,20 +1,7 @@
-<div class="posts-wrapper row">
-  <div class="post">
-    <div class="post-head">
-      <div class="name">
-        Jordan Brooks
-      </div>
-    </div>
-    <div class="image center-block">
-      <%= image_tag @post.image.url(:medium) %>
-    </div>
-    <p class="caption">
-      <%= @post.caption %>
-    </p>
-    <div class="text-center">
-      <%= link_to "Return", posts_path %>
-      |
-      <%= link_to "Edit", edit_post_path(@post) %>
-    </div>
-  </div>
+<%= render 'post', post: @post %>
+<div class="text-center edit-links">
+  <%= link_to "Return", posts_path %>
+  <% if current_user.id == @post.user.id %>
+      | <%= link_to "Edit", edit_post_path(@post) %>
+  <% end %>
 </div>

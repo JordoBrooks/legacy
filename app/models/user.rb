@@ -1,11 +1,14 @@
 class User < ApplicationRecord
   include AuthenticationHelper
 
+  has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
+
   attr_accessor :remember_token
 
   before_save {self.email.downcase!}
 
-  has_attached_file :image, styles: { :thumb => '100x100' }
+  has_attached_file :image, styles: { thumb: '50x50', medium: '250x250' }
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
   validates :first_name, presence: true, length: {maximum: 20}

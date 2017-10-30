@@ -23,5 +23,4 @@
 .byebug_history
 
 public/system/
-
-/.idea/
+.idea

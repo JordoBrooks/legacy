@@ -1,17 +1,3 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- */
- 
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
@@ -25,6 +11,9 @@ body {
   background-color: #fafafa;
   font-family: proxima-nova, 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
+
+
+/* Navbar Styling */
 
 .navbar-brand {
   a {
@@ -42,13 +31,15 @@ body {
 }
 
 .navbar-container {
-  width: 640px;
+  width: 70%;
   margin: 0 auto;
 }
 
 .navbar-collapse {
   padding: 4px;
 }
+
+/* Posts Styling */
 
 .posts-wrapper {
   padding-top: 40px;
@@ -64,31 +55,89 @@ body {
   border-radius: 3px;
   border-width: 1px;
   margin-bottom: 60px;
-}
-
-.post-head {
-  height: 64px;
-  padding: 14px 20px;
-  color: #592b7d;
-  font-size: 15px;
-  line-height: 18px;
-  .thumbnail {}
-  .name {
-    display: block;
+  .post-top {
+    flex-direction: row;
+    height: 64px;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 24px;
+    color: #592b7d;
+    font-size: 15px;
+    line-height: 18px;
+    .user-name, .time-ago, .post-pic {
+      display: inline;
+    }
+    .user-name {
+      font-weight: 500;
+    }
+    .time-ago {
+      color: #A5A7AA;
+      float: right;
+    }
+  }
+  .image {
+    border-bottom: 1px solid #eeefef;
+    border-top: 1px solid #eeefef;
   }
 }
 
-.image {
-  border-bottom: 1px solid #eeefef;
-  border-top: 1px solid #eeefef;
-}
-
-.caption {
-  padding: 24px 24px;
+.post-bottom {
+  .user-name, .comment-content {
+    display: inline;
+  }
+  .caption {
+    margin-bottom: 7px;
+  }
+  .user-name {
+    font-weight: 500;
+    margin-right: 0.3em;
+    color: #592b7d;
+    font-size: 15px;
+  }
+  .user-name, .caption-content {
+    display: inline;
+  }
+  .comment {
+    margin-top: 7px;
+    .user-name {
+      font-weight: 500;
+      margin-right: 0.3em;
+    }
+    .delete-comment {
+      float: right;
+      color: #515151;
+    }
+  }
+  margin-bottom: 7px;
+  padding-top: 24px;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-bottom: 10px;
   font-size: 15px;
   line-height: 18px;
-
 }
+
+.comment_content {
+  font-size: 15px;
+  line-height: 18px;
+  border: medium none;
+  width: 100%;
+  color: #4B4F54;
+}
+
+.comment-like-form {
+  padding-top: 24px;
+  margin-top: 13px;
+  margin-left: 24px;
+  margin-right: 24px;
+  min-height: 68px;
+  align-items: center;
+  border-top: 1px solid #EEEFEF;
+  flex-direction: row;
+  justify-content: center;
+}
+
+/* Forms */
 
 .form-wrapper {
   width: 60%;
@@ -103,8 +152,6 @@ body {
   margin-top: 20px;
   margin-bottom: 40px;
 }
-
-/* forms */
 
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;

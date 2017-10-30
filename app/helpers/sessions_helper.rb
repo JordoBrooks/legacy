@@ -49,6 +49,15 @@ module SessionsHelper
     return !current_user.nil?
   end
 
+  # is the person accessing the page logged in?
+  def logged_in_user?
+    unless logged_in?
+      store_URL
+      flash[:alert] = 'Please log in.'
+      redirect_to login_path
+    end
+  end
+
   # store the URL trying to be accessed
   def store_URL
     session[:forwarding_url] = request.original_url if request.get?

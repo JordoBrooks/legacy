@@ -1,0 +1,47 @@
+<div class="posts-wrapper">
+  <div class="post">
+    <div class="post-top">
+      <div class="post-pic">
+        <%= image_tag post.user.image.url(:thumb), class:'img-circle img-responsive' %>
+      </div>
+      <div class="user-name">
+        <%=post.user.first_name%> <%=post.user.last_name%>
+      </div>
+    </div>
+    <div class="image center-block">
+      <%= link_to (image_tag post.image.url(:medium), class:'img-responsive'), post_path(post) %>
+    </div>
+    <div class="post-bottom">
+      <div class="caption">
+        <%= post.caption %>
+      </div>
+      <% if post.comments %>
+          <% post.comments.each do |comment| %>
+              <div class="comment">
+                <div class="user-name">
+                  <%= comment.user.first_name %> <%= comment.user.last_name %>
+                </div>
+                <div class="comment-content">
+                  <%= comment.content %>
+                </div>
+                <% if comment.user == current_user %>
+                    <%= link_to post_comment_path(post, comment), method: :delete, data: { confirm: 'Are you sure?' } do %>
+                        <span class="glyphicon glyphicon-trash delete-comment"></span>
+                    <% end %>
+                <% end %>
+              </div>
+          <% end %>
+      <% end %>
+    </div>
+    <div class="comment-like-form row">
+      <div class="like-button col-sm-1">
+        <span class="glyphicon glyphicon-heart-empty"></span>
+      </div>
+      <div class="comment-form col-sm-11">
+        <%= form_for [post, post.comments.new] do |f| %>
+            <%= f.text_field :content, placeholder: 'Add a comment...' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
