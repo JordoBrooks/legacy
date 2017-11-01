@@ -12,6 +12,8 @@
             <%= render 'shared/error_message' %>
 
             <%= render partial: 'form', :locals => {:message => 'Create your account'} %>
+
+            <p>Already registered? <%= link_to 'Log in now!', login_path %></p>
           </div>
         </div>
       </div>

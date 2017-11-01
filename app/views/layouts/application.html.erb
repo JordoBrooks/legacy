@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 
-  <% unless controller_name == 'sessions' && (action_name == 'new' || action_name == 'create')  %>
+  <% unless (controller_name == 'sessions' && (action_name == 'new' || action_name == 'create')) ||
+            (controller_name == 'users' && (action_name == 'new' || action_name == 'create')) %>
     <%= render 'layouts/navbar' %>
   <% end %>
 
