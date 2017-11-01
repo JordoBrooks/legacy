@@ -1,27 +1,35 @@
-<% provide(:title, 'Log in') %>
+<div class="log-in-background">
+  <div class="container">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="log-in panel">
+        <div class="panel-heading">
+          <% unless @user.errors.any? %>
+              <%= image_tag('legacy-logo-circle.jpg') %>
+          <% end %>
+          <h2>Log in</h2>
+        </div>
+        <div class="panel-body">
+          <%= render 'shared/error_message' %>
 
-<div style="text-align:center;"><img src="assets/legacy-logo-circle-grey-background.jpg"></div>
+          <%= form_for(:session, url: login_path) do |f| %>
 
-<h1 align='center'>Log in</h1>
+              <%= f.label :email %>
+              <%= f.email_field :email, class: 'form-control' %>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(:session, url: login_path) do |f| %>
+              <%= f.label :password %>
+              <%= f.password_field :password, class: 'form-control' %>
 
-        <%= f.label :email %>
-        <%= f.email_field :email, class: 'form-control' %>
+              <%= f.label :remember_me, class: 'checkbox inline' do %>
+                  <%= f.check_box :remember_me %>
+                  <span>Remember me on this computer</span>
+              <% end %>
 
-        <%= f.label :password %>
-        <%= f.password_field :password, class: 'form-control' %>
+              <%= f.submit 'Log in', class: 'btn btn-main' %>
+          <% end %>
 
-        <%= f.label :remember_me, class: 'checkbox inline' do %>
-            <%= f.check_box :remember_me %>
-            <span>Remember me on this computer</span>
-        <% end %>
-
-        <%= f.submit 'Log in', class: 'btn btn-primary' %>
-    <% end %>
-
-    <p>New user? <%= link_to 'Sign up now!', new_user_path %></p>
+          <p>New user? <%= link_to 'Sign up now!', new_user_path %></p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

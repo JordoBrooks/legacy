@@ -13,7 +13,6 @@ class UsersController < ApplicationController
       flash[:success] = 'User created!'
       redirect_to_forwarding_url_or posts_path
     else
-      flash[:alert] = 'User could not be created. Please check required fields.'
       render :new
     end
   end

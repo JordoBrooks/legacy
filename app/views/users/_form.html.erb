@@ -1,26 +1,17 @@
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(@user) do |f| %>
+<%= form_for(@user) do |f| %>
 
-        <%= f.label :image %>
-        <%= f.file_field :image %>
+    <%= f.email_field :email, placeholder: 'Email', class: 'form-control' %>
 
-        <%= f.label :first_name %>
-        <%= f.text_field :first_name, class: 'form-control' %>
+    <%= f.text_field :first_name, placeholder: 'First Name', class: 'form-control' %>
 
-        <%= f.label :last_name %>
-        <%= f.text_field :last_name, class: 'form-control' %>
+    <%= f.text_field :last_name, placeholder: 'Last Name', class: 'form-control' %>
 
-        <%= f.label :email %>
-        <%= f.email_field :email, class: 'form-control' %>
+    <%= f.password_field :password, placeholder: 'Password', class: 'form-control' %>
 
-        <%= f.label :password %>
-        <%= f.password_field :password, class: 'form-control' %>
+    <%= f.password_field :password_confirmation, placeholder: 'Confirm Password', class: 'form-control' %>
 
-        <%= f.label :password_confirmation, "Confirmation" %>
-        <%= f.password_field :password_confirmation, class: 'form-control' %>
+    <%= f.label :image, 'Profile Picture' %>
+    <%= f.file_field :image %>
 
-        <%= f.submit message, class: "btn btn-primary" %>
-    <% end %>
-  </div>
-</div>
+    <%= f.submit message, class: 'btn btn-main' %>
+<% end %>

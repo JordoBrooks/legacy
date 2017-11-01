@@ -1,6 +1,19 @@
-<% provide(:title, 'Sign up') %>
-<h1 align="center">Sign up</h1>
+<div class="registration-background">
+  <div class="container">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="log-in panel">
+          <div class="panel-heading">
+            <% unless @user.errors.any? %>
+              <%= image_tag('legacy-logo-circle.jpg') %>
+            <% end %>
+            <h2>Create an account</h2>
+          </div>
+          <div class="panel-body">
+            <%= render 'shared/error_message' %>
 
-<%= render 'shared/error_message' %>
-
-<%= render partial: 'form', :locals => {:message => 'Create your account'} %>
+            <%= render partial: 'form', :locals => {:message => 'Create your account'} %>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
