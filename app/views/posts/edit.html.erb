@@ -1,6 +1,3 @@
-<div class="image center-block">
-  <%= image_tag @post.image.url(:medium), class:'img-responsive'%>
-</div>
 <%= render partial: 'form', :locals => {:message => 'Edit your post'} %>
 <div class="text-center edit-links">
   <%= link_to "Delete Post", post_path(@post), method: :delete, data: { confirm: "Are you sure you want to delete this post?" } %>
