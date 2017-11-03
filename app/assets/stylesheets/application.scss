@@ -284,3 +284,30 @@ html {
     text-align: center;
   }
 }
+
+#paginator {
+  color: #592b7d;
+  height: 120px;
+  width: 120px;
+  margin: 60px auto 40px;
+  position: relative;
+  display: table;
+  border: 2px solid #592b7d;
+  border-radius: 50%;
+  :hover {
+    border: 1px solid #42215d;
+    border-radius: 50%;
+  }
+}
+
+#load_more {
+  display: table-cell;
+  font-size: 12px;
+  padding: 0px 9px;
+  vertical-align: middle;
+  text-decoration: none;
+  color: #592b7d;
+  a :hover {
+    color: #42215d;
+  }
+}
