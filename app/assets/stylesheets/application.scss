@@ -89,6 +89,7 @@ body {
         font-weight: bold;
         font-size: large;
         line-height: 50px;
+        color: #592b7d;
       }
       .time-ago {
         color: #A5A7AA;
@@ -309,5 +310,14 @@ html {
   color: #592b7d;
   a :hover {
     color: #42215d;
+  }
+}
+
+.comments {
+  .paginator {
+    margin: 0.5em;
+    .more-comments {
+      color: #A5A7AA;
+    }
   }
 }
