@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   before_save {self.email.downcase!}
 
-  has_attached_file :image, styles: { thumb: '50x50', medium: '250x250' }
+  has_attached_file :image, styles: { thumb: '50x50', medium: '250x250', large: '400x400' }
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
   validates :first_name, presence: true, length: {maximum: 20}
@@ -20,6 +20,8 @@ class User < ApplicationRecord
 
   has_secure_password
   validates :password, presence: true, length: {minimum: 6}
+
+  validates :bio, length: {maximum: 500}
 
   # remember user in database for use in persistent session
   def remember

@@ -99,8 +99,8 @@ body {
       }
     }
     .image {
-      border-bottom: 1px solid #eeefef;
-      border-top: 1px solid #eeefef;
+      border-bottom: 1px solid #cecece;
+      border-top: 1px solid #cecece;
     }
     .post-bottom {
       margin-bottom: 7px;
@@ -134,6 +134,9 @@ body {
       .comments {
         margin-top: 7px;
       }
+      .caption-content {
+        padding-left: 15px;
+      }
     }
     .comment-like-form {
       padding-top: 24px;
@@ -142,7 +145,7 @@ body {
       margin-right: 24px;
       min-height: 68px;
       align-items: center;
-      border-top: 1px solid #EEEFEF;
+      border-top: 1px solid #cecece;
       flex-direction: row;
       justify-content: center;
       .comment-content {
@@ -320,4 +323,44 @@ html {
       color: #A5A7AA;
     }
   }
+}
+
+.profile-image {
+  margin: 20px auto;
+}
+
+.form-group {
+  margin: 15px;
+}
+
+.profile-header {
+  padding: 20px 0;
+}
+
+.profile-image {
+  margin: 20px auto;
+  height: 152px;
+  width: 152px;
+}
+
+.user-name-and-follow {
+  display: inline;
+}
+
+.profile-user-name {
+  display: inline;
+}
+
+.edit-button {
+  border-color: #818488;
+  color: #818488;
+  margin-left: 20px;
+}
+
+.profile-bio {
+  margin-top: 20px;
+}
+
+.like-button {
+  border-right: 1px solid #cecece;
 }

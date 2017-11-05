@@ -7,7 +7,7 @@
       <%= form_for(@post) do |f| %>
 
             <%= f.label :image %>
-            <%= f.file_field :image, onchange: 'loadFile(event)' %>
+            <%= f.file_field :image, onChange: 'loadFile(event)' %>
 
           <%= f.text_field :caption, placeholder: 'Caption', class: 'form-control' %>
 

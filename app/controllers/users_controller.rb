@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :logged_in_user?, only: [:edit, :update, :destroy]
   before_action :correct_user?, only: [:edit, :update, :destroy]
+  before_action :set_user, only: [:edit, :update, :show]
 
   def new
     @user = User.new
@@ -18,21 +19,17 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
-    if @user.update_attributes(params_for_user)
+    @user.update_attribute(:image, params[:user][:image])
+    @user.update_attribute(:bio, params[:user][:bio])
       flash[:success] = 'Profile updated!'
       redirect_to user_path(@user)
-    else
-      render 'edit'
-    end
   end
 
   def show
-    @user = User.find(params[:id])
+    @posts = @user.posts.order('created_at DESC')
   end
 
   def destroy
@@ -45,12 +42,16 @@ class UsersController < ApplicationController
 
     # strong params for mass assignment vulnerability prevention
     def params_for_user
-      params.require(:user).permit(:first_name, :last_name, :email, :image, :password, :password_confirmation)
+      params.require(:user).permit(:first_name, :last_name, :email, :image, :password, :password_confirmation, :bio)
     end
 
     def correct_user?
       @user = User.find(params[:id])
       redirect_to root_url if !current_user?(@user)
+    end
+
+    def set_user
+      @user = User.find(params[:id])
     end
 
 end

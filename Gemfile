@@ -67,3 +67,6 @@ gem 'faker', '1.7.3'
 
 # for pagination
 gem 'kaminari', :git => "git://github.com/amatsuda/kaminari.git", :branch => 'master'
+
+# for likes
+gem 'acts_as_votable', '~> 0.11.1'

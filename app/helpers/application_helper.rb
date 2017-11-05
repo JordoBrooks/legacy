@@ -8,4 +8,23 @@ module ApplicationHelper
     }[flash_type.to_sym] || flash_type.to_s
   end
 
+  def profile_pic_select(user, context)
+    if context == 'edit'
+      if user.image.exists?
+        return image_tag user.image.url(:large),
+                         id: 'image-preview',
+                         class: 'img-responsive img-circle profile-image'
+      end
+      image_tag 'default-user-image-edit.jpg', id: 'image-preview',
+                class: 'img-responsive img-circle profile-image'
+    elsif context == 'post'
+      if user.image.exists?
+        return image_tag user.image.url(:thumb),
+                         id: 'image-preview',
+                         class: 'img-responsive img-circle profile-image'
+      end
+      image_tag 'default-user-image-post.jpg', id: 'image-preview',
+                class: 'img-responsive img-circle profile-image'
+    end
+  end
 end
