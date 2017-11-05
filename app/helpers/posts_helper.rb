@@ -8,4 +8,27 @@ module PostsHelper
     end
   end
 
+  def likers_of(post)
+    votes = post.votes_for.up.by_type(User)
+    users = []
+    unless votes.blank?
+      votes.voters.each do |voter|
+        users.push(link_to voter.first_name + ' ' + voter.last_name,
+                                user_path(voter),
+                                class: 'user-name')
+      end
+      return 'Liked by '.html_safe + likers_condensed(users)
+    end
+  end
+
+  def likers_condensed(users)
+    if users.length > 3
+      user_subset = users.take(3)
+      num_leftover = users.length - 3
+      return user_subset.to_sentence.html_safe + " and #{num_leftover} others"
+    else
+      return users.to_sentence.html_safe
+    end
+  end
+
 end

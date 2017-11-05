@@ -10,7 +10,7 @@ Rails.application.routes.draw do
       get 'like'
     end
   end
-  
+
   resources :users
 
 	root 'posts#index'
