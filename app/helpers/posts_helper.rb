@@ -15,7 +15,7 @@ module PostsHelper
       votes.voters.each do |voter|
         users.push(link_to voter.first_name + ' ' + voter.last_name,
                                 user_path(voter),
-                                class: 'user-name')
+                                class: 'user-name-like')
       end
       return 'Liked by '.html_safe + likers_condensed(users)
     end

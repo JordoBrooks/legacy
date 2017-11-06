@@ -74,22 +74,20 @@ body {
     border-width: 1px;
     margin-bottom: 60px;
     .post-top {
-      flex-direction: row;
+
       height: 64px;
-      padding-left: 24px;
-      padding-right: 24px;
-      padding-top: 7px;
+
       color: #592b7d;
-      line-height: 18px;
-      .user-name, .time-ago, .post-pic {
-        display: inline-block;
-      }
+
+
       .user-name {
-        padding-left: 25px;
         font-weight: bold;
         font-size: large;
-        line-height: 50px;
         color: #592b7d;
+        text-decoration: none;
+      }
+      .user-name:hover {
+        color: #2d1542;
       }
       .time-ago {
         color: #A5A7AA;
@@ -111,13 +109,18 @@ body {
       font-size: 15px;
       line-height: 18px;
       .caption-user-name {
-        font-weight: 500;
+        font-weight: 800;
         margin-right: 0.3em;
         color: #592b7d;
-        font-size: 15px;
+        font-size: 16px;
+        text-decoration: none;
+      }
+      .caption-user-name:hover {
+        color: #2d1542;
       }
       .caption {
         margin-bottom: 7px;
+        display: flex;
       }
       .comment-user-name, .comment-content {
         display: inline;
@@ -136,6 +139,9 @@ body {
       }
       .caption-content {
         padding-left: 15px;
+        flex-grow: 1;
+        font-size: 16px;
+        margin-bottom: 15px;
       }
     }
     .comment-like-form {
@@ -159,9 +165,9 @@ body {
   }
 }
 
-.comment-user-name {
-  font-weight: 500;
-  margin-right: 0.3em;
+.comment-user-name:hover {
+  color: #2d1542;
+  text-decoration: none;
 }
 
 .delete-comment {
@@ -361,10 +367,35 @@ html {
   margin-top: 20px;
 }
 
-.like-button {
+.like-button-area {
   border-right: 1px solid #cecece;
+}
+
+.like-button:link {
+  color: #818488;
+  text-decoration: none;
+}
+.like-button:visited {
+  color: #818488;
+  text-decoration: none;
+}
+.like-button:hover {
+  color: red;
+  text-decoration: none;
+}
+.like-button:active {
+  color: red;
+  text-decoration: none;
 }
 
 .likes {
   margin-bottom: 7px;
+}
+
+.user-name-like {
+  color: #592b7d;
+}
+.user-name-like:hover {
+  color: #2d1542;
+  text-decoration: none;
 }
