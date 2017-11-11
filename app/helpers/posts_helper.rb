@@ -23,11 +23,18 @@ module PostsHelper
 
   def likers_condensed(users)
     if users.length > 3
-      user_subset = users.take(3)
-      num_leftover = users.length - 3
-      return user_subset.to_sentence.html_safe + " and #{num_leftover} others"
+      user_count = users.count
+      return "#{users.count} likes"
     else
       return users.to_sentence.html_safe
+    end
+  end
+
+  def like_status(post)
+    if current_user.voted_for? post
+      return link_to '', unlike_post_path(post), remote: true, id: "like_#{post.id}", class: 'glyphicon glyphicon-heart liked-button'
+    else
+      return link_to '', like_post_path(post), remote: true, id: "like_#{post.id}", class: 'glyphicon glyphicon-heart like-button'
     end
   end
 

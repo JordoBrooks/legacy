@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   include AuthenticationHelper
 
+  acts_as_voter
+
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
 
