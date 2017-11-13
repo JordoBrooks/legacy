@@ -1,5 +1,5 @@
 var $paginator = $('#paginator');
 
-$('#post-index').append("<<%= escape_javascript(render 'posts')%>>");
+$('#post-index').append("<<%= escape_javascript(render 'posts/posts')%>>");
 $paginator.html("<%= escape_javascript(link_to_next_page(@posts, 'LOAD MORE', remote: true, id: 'load_more'))%>");
 if (!$('#load_more').length) { $paginator.html("<a id='load_more'>END OF POSTS</a>"); }
