@@ -29,7 +29,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @posts = @user.posts.order('created_at DESC')
+    @posts = @user.posts
   end
 
   def destroy

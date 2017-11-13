@@ -28,6 +28,6 @@
   </div>
 </div>
 
-<% @posts.reverse_each do |post| %>
-    <%= render 'post', post: post %>
-<% end %>
+<div id="post-index">
+  <%= render 'posts/posts' %>
+</div>

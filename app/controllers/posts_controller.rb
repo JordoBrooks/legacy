@@ -55,7 +55,7 @@ class PostsController < ApplicationController
 	end
 
 	def unlike
-		if @post.disliked_by current_user
+		if @post.unliked_by current_user
 			respond_to do |format|
 				format.html { redirect_back }
 				format.js

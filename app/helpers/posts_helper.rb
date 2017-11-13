@@ -34,7 +34,7 @@ module PostsHelper
     if current_user.voted_for? post
       return link_to '', unlike_post_path(post), remote: true, id: "like_#{post.id}", class: 'glyphicon glyphicon-heart liked-button'
     else
-      return link_to '', like_post_path(post), remote: true, id: "like_#{post.id}", class: 'glyphicon glyphicon-heart like-button'
+      return link_to '', like_post_path(post), remote: true, id: "like_#{post.id}", class: 'glyphicon glyphicon-heart-empty like-button'
     end
   end
 
