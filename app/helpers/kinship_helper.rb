@@ -1,0 +1,2 @@
+module KinshipHelper
+end

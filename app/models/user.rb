@@ -6,6 +6,9 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
 
+  has_many :kinship
+  has_many :family, through: :kinship
+
   attr_accessor :remember_token
 
   before_save {self.email.downcase!}

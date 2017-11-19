@@ -13,6 +13,12 @@
         <span>
           <% if @user == current_user %>
             <%= link_to 'Edit Profile', edit_user_path(@user), class: 'btn edit-button' %>
+          <% else %>
+              <% if current_user_is_family(@user.id) %>
+                <%= link_to 'Leave Family', leave_family_path(family_id: @user.id), remote: true, class: 'btn leave-family-button', id: 'leave-family-button', method: 'post' %>
+              <% else %>
+                <%= link_to 'Join Family', join_family_path(family_id: @user.id), remote: true, class: 'btn join-family-button', id: 'join-family-button', method: 'post' %>
+              <% end %>
           <% end %>
         </span>
       </div>
