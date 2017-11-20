@@ -200,6 +200,20 @@ body {
   margin-bottom: 40px;
 }
 
+.delete-links {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  color: red;
+  &:visited, &:focus {
+    text-decoration: none;
+    color: red;
+  }
+  &:hover {
+    text-decoration: none;
+    color: darkred;
+  }
+}
+
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
@@ -342,6 +356,9 @@ html {
 
 .profile-image {
   margin: 20px auto;
+  height: 152px;
+  width: 152px;
+  float: left;
 }
 
 .form-group {
@@ -352,11 +369,10 @@ html {
   padding: 20px 0;
 }
 
-.profile-image {
+.edit-profile-image {
   height: 152px;
   width: 152px;
-  float: left;
-  margin-left: 20px;
+  margin: 20px auto;
 }
 
 .user-name-and-family {
