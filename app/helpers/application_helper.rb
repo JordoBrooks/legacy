@@ -21,7 +21,7 @@ module ApplicationHelper
       if user.image.exists?
         return image_tag user.image.url(:thumb),
                          id: 'image-preview',
-                         class: 'img-responsive img-circle profile-image'
+                         class: 'img-responsive img-circle post-top-img'
       end
       image_tag 'default-user-image-post.jpg',class: 'img-responsive img-circle post-top-img'
     end
