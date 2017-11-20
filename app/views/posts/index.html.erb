@@ -1,4 +1,4 @@
-<% if @total_posts != 0 %>
+<% if current_user.family.count != 0 %>
     <div id="post-index">
       <%= render 'posts' %>
     </div>
