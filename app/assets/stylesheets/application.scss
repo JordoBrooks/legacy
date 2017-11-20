@@ -483,3 +483,17 @@ html {
   margin-left: auto;
   margin-right: auto
 }
+
+.empty-index-explore-link {
+  text-decoration: none;
+  color: #592b7d;
+  font-weight: bold;
+  &:visited, &:focus {
+    text-decoration: none;
+    color: #592b7d;
+  }
+  &:hover {
+    text-decoration: none;
+    color: #2d1542;
+  }
+}
