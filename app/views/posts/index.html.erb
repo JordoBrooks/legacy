@@ -1,9 +1,21 @@
-<div id="post-index">
-  <%= render 'posts' %>
-</div>
+<% if @total_posts != 0 %>
+    <div id="post-index">
+      <%= render 'posts' %>
+    </div>
 
-<% if @total_posts > 3 %>
-    <div class="text-center" id="paginator">
-      <%= link_to_next_page @posts, 'LOAD MORE', remote: true, id: 'load_more' %>
+    <% if @total_posts > 3 %>
+        <div class="text-center" id="paginator">
+          <%= link_to_next_page @posts, 'LOAD MORE', remote: true, id: 'load_more' %>
+        </div>
+    <% end %>
+<% else %>
+    <div class="posts-wrapper">
+      <%= image_tag('legacy-logo-circle-grey-background.jpg', class: 'empty-index-logo') %>
+      <h1 class="empty-index-text text-center">
+        Add family members to see their memories here.
+      </h1>
+      <h1 class="empty-index-text text-center">
+        Use the explore page to search for relatives!
+      </h1>
     </div>
 <% end %>
