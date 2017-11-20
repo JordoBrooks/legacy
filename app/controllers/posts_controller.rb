@@ -4,7 +4,8 @@ class PostsController < ApplicationController
 	before_action :owns_post?, only: [:edit, :update, :destroy]
 
 	def index
-		@posts = Post.all.order('created_at DESC').page params[:page]
+		@total_posts = Post.all.count
+		@posts = Post.of_family_members(current_user.family).order('created_at DESC').page params[:page]
 	end
 	
 	def new

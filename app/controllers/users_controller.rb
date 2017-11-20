@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user?, only: [:edit, :update, :destroy]
+  before_action :logged_in_user?, only: [:edit, :update, :destroy, :show, :index]
   before_action :correct_user?, only: [:edit, :update, :destroy]
   before_action :set_user, only: [:edit, :update, :show]
 
@@ -36,6 +36,10 @@ class UsersController < ApplicationController
     User.find(params[:id]).destroy
     flash[:success] = 'User removed.'
     redirect_to login_path
+  end
+
+  def index
+    @users = User.all.order('last_name').page params[:page]
   end
 
   private

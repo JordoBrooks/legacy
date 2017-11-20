@@ -1,0 +1,19 @@
+<div class="posts-wrapper">
+  <div class="post">
+    <h1 class="text-center">Find family</h1>
+    <ul class="users">
+      <% @users.each do |user| %>
+          <div class="post-top">
+            <div class="row col-md-9">
+              <div class="post-pic col-md-2">
+                <%= image_tag user.image.url(:thumb), class:'img-circle img-responsive' %>
+              </div>
+              <div class="user-name col-md-10">
+                <%= link_to user.first_name + ' ' + user.last_name, user_path(user), class: 'user-name' %>
+              </div>
+            </div>
+          </div>
+      <% end %>
+    </ul>
+  </div>
+</div>

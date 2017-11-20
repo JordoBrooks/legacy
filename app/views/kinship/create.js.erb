@@ -1,4 +1,4 @@
 $('#join-family-button').attr('class', 'btn leave-family-button')
                         .text('Leave Family')
-                        .attr('href', "/<%= @user.user_name %>/unfollow_user")
+                        .attr('href', "/<%= @user.id %>/leave_family")
                         .attr('id', 'leave-family-button');

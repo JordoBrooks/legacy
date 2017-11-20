@@ -12,4 +12,6 @@ class Post < ApplicationRecord
 	has_attached_file :image, styles: { :medium => '640x' }
 	validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
+	scope :of_family_members, -> (family_members) { where user_id: family_members }
+
 end

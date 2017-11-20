@@ -25,6 +25,11 @@
         </li>
         <li>
           <% if logged_in? %>
+              <a href=<%=users_path%>><span class="glyphicon glyphicon-globe"></span> Explore</a>
+          <% end %>
+        </li>
+        <li>
+          <% if logged_in? %>
               <a href=<%=logout_path%> data-method="delete"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
           <% else %>
               <a href=<%=new_user_path%>><span class="glyphicon glyphicon-globe"></span> Register</a>

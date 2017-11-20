@@ -1,5 +1,7 @@
 class KinshipController < ApplicationController
 
+  before_action :set_user
+
   def create
     if build_kinship
       respond_to do |format|
@@ -11,8 +13,10 @@ class KinshipController < ApplicationController
 
   def destroy
     destroy_kinship
-    flash[:success] = 'Family member removed.'
-    render something that makes sense
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.js
+    end
   end
 
 
@@ -21,7 +25,7 @@ class KinshipController < ApplicationController
   def build_kinship
     @kinship1 = current_user.kinship.build(family_id: params[:family_id])
 
-    family_member = User.find(params[:family_id])
+    family_member = @user
     @kinship2 = family_member.kinship.build(family_id: current_user.id)
 
     if @kinship1.save && @kinship2.save
@@ -41,11 +45,15 @@ class KinshipController < ApplicationController
   def destroy_kinship
     @kinship1 = current_user.kinship.find_by(family_id: params[:family_id])
 
-    family_member = User.find(params[:family_id])
+    family_member = @user
     @kinship2 = family_member.kinship.find_by(family_id: current_user.id)
-    
+
     @kinship1.destroy
     @kinship2.destroy
+  end
+
+  def set_user
+    @user = User.find(params[:family_id])
   end
 
 end
