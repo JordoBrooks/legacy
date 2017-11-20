@@ -6,10 +6,12 @@
     <div class="container-fluid post-upload-form">
       <%= form_for(@post) do |f| %>
 
-            <%= f.label :image %>
-            <%= f.file_field :image, onChange: 'loadFile(event)' %>
+          <%= f.label :image %>
+          <%= f.file_field :image, onChange: 'loadFile(event)' %>
 
-          <%= f.text_field :caption, placeholder: 'Caption', class: 'form-control' %>
+          <%= f.text_field :caption, placeholder: 'Tell your story...', class: 'form-control' %>
+
+          <%= f.date_select :date %>
 
           <%= f.submit message, class: 'btn btn-main' %>
       <% end %>

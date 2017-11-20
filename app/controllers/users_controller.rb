@@ -11,7 +11,6 @@ class UsersController < ApplicationController
     @user = User.new(params_for_user)
     if @user.save
       login @user
-      flash[:success] = 'User created!'
       redirect_to_forwarding_url_or posts_path
     else
       render :new

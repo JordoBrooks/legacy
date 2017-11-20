@@ -3,13 +3,13 @@
     <div class="post-top">
       <div class="row col-md-9">
         <div class="post-pic col-md-2">
-          <%= image_tag post.user.image.url(:thumb), class:'img-circle img-responsive' %>
+          <%= profile_pic_select(post.user, 'post') %>
         </div>
         <div class="user-name col-md-10">
           <%= link_to post.user.first_name + ' ' + post.user.last_name, user_path(post.user), class: 'user-name' %>
         </div>
       </div>
-      <div class="time-ago"><%= time_ago_in_words(post.created_at) %></div>
+      <div class="time-ago"><%= post.date.to_formatted_s(:long_ordinal) %></div>
     </div>
     <div class="image center-block">
       <%= link_to (image_tag post.image.url(:medium), class:'img-responsive'), post_path(post) %>

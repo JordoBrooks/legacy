@@ -23,8 +23,7 @@ module ApplicationHelper
                          id: 'image-preview',
                          class: 'img-responsive img-circle profile-image'
       end
-      image_tag 'default-user-image-post.jpg', id: 'image-preview',
-                class: 'img-responsive img-circle profile-image'
+      image_tag 'default-user-image-post.jpg',class: 'img-responsive img-circle post-top-img'
     end
   end
 end
