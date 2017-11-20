@@ -6,7 +6,7 @@
           <div class="post-top">
             <div class="row col-md-9">
               <div class="post-pic col-md-2">
-                <%= image_tag user.image.url(:thumb), class:'img-circle img-responsive' %>
+                <%= profile_pic_select(user, 'post') %>
               </div>
               <div class="user-name col-md-10">
                 <%= link_to user.first_name + ' ' + user.last_name, user_path(user), class: 'user-name' %>
