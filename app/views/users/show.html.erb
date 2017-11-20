@@ -1,18 +1,18 @@
 <div class="posts-wrapper">
   <div class="row profile-header">
-    <div class="col-md-6">
+    <div class="col-md-4">
       <div class="img-circle">
         <%= profile_pic_select(@user, 'edit') %>
       </div>
     </div>
-    <div class="col-md-6">
-      <div class="user-name-and-follow">
-        <h3 class="profile-user-name">
+    <div class="col-md-8">
+      <div class="user-name-and-family row">
+        <h3 class="profile-user-name col-md-6">
           <%= @user.first_name + ' ' + @user.last_name %>
         </h3>
-        <span>
+        <span class="col-md-6 edit-leave-join">
           <% if @user == current_user %>
-            <%= link_to 'Edit Profile', edit_user_path(@user), class: 'btn edit-button' %>
+            <%= link_to 'Edit Profile', edit_user_path(@user), class: 'btn join-family-button' %>
           <% else %>
               <% if current_user_is_family(@user.id) %>
                 <%= link_to 'Leave Family', leave_family_path(family_id: @user.id), remote: true, class: 'btn leave-family-button', id: 'leave-family-button', method: 'post' %>

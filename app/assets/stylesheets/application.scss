@@ -354,17 +354,22 @@ html {
 }
 
 .profile-image {
-  margin: 20px auto;
   height: 152px;
   width: 152px;
+  float: left;
+  margin-left: 20px;
 }
 
-.user-name-and-follow {
+.user-name-and-family {
   display: inline;
 }
 
 .profile-user-name {
-  display: inline;
+  padding-left: 0px;
+}
+
+.edit-leave-join {
+  padding-top: 18px;
 }
 
 .edit-button {
@@ -430,24 +435,29 @@ html {
 
 .join-family-button {
   text-transform: uppercase;
-  border-color: #4090db;
-  color: #4090db;
+  border-color: #592b7d;
+  color: #592b7d;
   margin-left: 20px;
   &:visited, &:focus, &:hover {
-    border-color: #2D6396;
-    color: #2D6396;
+    border-color: #2d1542;
+    color: #2d1542;
   }
 }
 
 .leave-family-button {
   text-transform: uppercase;
-  border-color: #66bd2b;
-  background-color: #66bd2b;
+  border-color: #592b7d;
+  background-color: #592b7d;
   color: white;
   margin-left: 20px;
-  &:visited, &:focus, &:hover {
-    border-color: #47821F;
-    background-color: #47821F;
+  &:visited, &:focus {
+    border-color: #592b7d;
+    background-color: #592b7d;
+    color: white;
+  }
+  &:hover {
+    border-color: #2d1542;
+    background-color: #2d1542;
     color: white;
   }
 }
