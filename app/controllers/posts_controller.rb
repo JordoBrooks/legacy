@@ -5,7 +5,7 @@ class PostsController < ApplicationController
 
 	def index
 		@total_posts = Post.of_family_members(current_user.family).count
-		@posts = Post.of_family_members(current_user.family).order('created_at DESC').page params[:page]
+		@posts = Post.of_family_members(current_user.family).order(:date).reverse_order.page params[:page]
 	end
 	
 	def new

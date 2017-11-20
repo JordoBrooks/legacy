@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     @user = User.new(params_for_user)
     if @user.save
       login @user
-      redirect_to_forwarding_url_or posts_path
+      redirect_to_forwarding_url_or user_path(@user)
     else
       render :new
     end
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @posts = @user.posts.order('created_at DESC').page params[:page]
+    @posts = @user.posts.order(:date).reverse_order.page params[:page]
   end
 
   def destroy
