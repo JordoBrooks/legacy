@@ -8,7 +8,7 @@ class Post < ApplicationRecord
 	validates :image, presence: true
 	validates :user_id, presence: true
   validates :date, presence: true
-  validates :caption, length: {maximum: 250}
+  validates :caption, length: {maximum: 2000}
 
 	has_attached_file :image, styles: { :medium => '640x' }
 	validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
